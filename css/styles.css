@@ -1,0 +1,141 @@
+:root {
+  --violet: hsl(263, 55%, 52%);
+  --grayish-blue: hsl(217, 19%, 35%);
+  --blackish-blue: hsl(219, 29%, 14%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+  --light-white: rgba(255, 255, 255, 0.45);
+}
+
+blockquote,
+p {
+  margin: 0;
+}
+
+body {
+  padding: 2rem 1rem;
+  background-color: var(--light-grayish-blue);
+}
+
+.main {
+  display: grid;
+  gap: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(200px, auto));
+    grid-template-areas:
+      "daniel daniel jonathan"
+      "jeanette patrick patrick"
+      "kira kira kira";
+    margin: 2rem auto;
+    max-width: 80%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .main {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, minmax(200px, auto));
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+    margin: 5rem auto;
+    max-width: 80%;
+  }
+}
+
+.article {
+  background-color: #fff;
+  padding: 2rem 2.3rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .article:first-child {
+    grid-area: daniel;
+  }
+
+  .article:nth-child(5) {
+    grid-area: kira;
+  }
+
+  .article:nth-child(4) {
+    grid-area: patrick;
+  }
+}
+
+.article--semicolon-background {
+  background-image: url(../images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: 90% top;
+}
+
+.article--violet {
+  background-color: var(--violet);
+}
+
+.article--grayish-blue {
+  background-color: var(--grayish-blue);
+}
+
+.article--black {
+  background-color: #000;
+}
+
+.article--dark {
+  color: #000;
+}
+
+.article--light {
+  color: #fff;
+}
+
+.article__header {
+  display: flex;
+  align-items: center;
+}
+
+.article__photo {
+  width: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.article__photo--white-border {
+  border: 3px solid var(--light-white);
+}
+
+.article__photo--purple-border {
+  border: 3px solid var(--violet);
+}
+
+.article__info {
+  margin-left: 20px;
+}
+
+.article__profession,
+.article__comment {
+  color: var(--light-white);
+}
+
+.article--dark .article__profession {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.article--dark .article__comment {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.article__comment {
+  line-height: 22px;
+  font-weight: 500;
+}
+
+.article__title {
+  font-weight: 500;
+  font-size: 23px;
+}
